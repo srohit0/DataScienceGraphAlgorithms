@@ -16,6 +16,30 @@ This is a relatively poor quality code produced over a weekend. Main objective b
 * Kruskal's Mimimal Spanning Tree
 * Dijkstra's Single Source Shortest Path
 
+## Graph Format
+
+```
+graph (un)directed`
+<node-x> <node-y> [edge-weight]
+```
+
+***Example Graph File*** 
+
+![](https://github.com/srohit0/BasicGraphAlgorithmsCpp/blob/master/docs/ExampleGraph.JPG)
+      
+```
+graph directed
+n1 n2 2
+n1 n3 4
+n2 n3 1
+n2 n4 4
+n2 n5 2
+n3 n5 3
+n4 n6 2
+n5 n4 3
+n5 n6 2
+```
+
 ## How to Compile
 ```
 cd src
@@ -57,33 +81,6 @@ nd dist_from_src edge
 n1       0       [none  n1 0]
 n2       2       [n1  n2 2]
 n3       3       [n2  n3 1]
-```
-
-
-## Graph Format
-
-```
-graph (un)directed`
-<node-x> <node-y> [edge-weight]
-```
-
-***Example Graph File*** 
-
-![](https://github.com/srohit0/BasicGraphAlgorithmsCpp/blob/master/docs/ExampleGraph.JPG)
-
-
-      
-```
-graph directed
-n1 n2 2
-n1 n3 4
-n2 n3 1
-n2 n4 4
-n2 n5 2
-n3 n5 3
-n4 n6 2
-n5 n4 3
-n5 n6 2
 ```
 
 
