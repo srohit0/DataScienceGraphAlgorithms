@@ -68,6 +68,11 @@ graph (un)directed`
 ```
 
 ***Example Graph File*** 
+
+![Example Graph](https://github.com/srohit0/BasicGraphAlgorithmsCpp/blob/master/docs/ExampleGraph.JPG =400x200)
+
+
+      
 ```
 graph directed
 n1 n2 2
