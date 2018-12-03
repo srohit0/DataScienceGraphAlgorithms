@@ -17,7 +17,7 @@ graph (un)directed`
 ```
 
 ***Example Graph File*** 
-'''
+```
 graph directed
 n1 n2 2
 n1 n3 4
@@ -28,7 +28,7 @@ n3 n5 3
 n4 n6 2
 n5 n4 3
 n5 n6 2
-'''
+```
 
 
 ## Summary
