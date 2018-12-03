@@ -4,9 +4,7 @@
 
 This repo covers basic graph algorithms for directed and undirected graphs with/without weights on edges.
 
-Base graph data structure is targeted for **sparse graphs**. For example, it maintains adjancy list and pointrs.
-
-This is a relatively poor quality code produced over a weekend. Main objective behind this repository is purely educational.
+Base graph data structure is targeted for **sparse graphs** efficiency. For example, it maintains adjancy list and pointrs.
 
 ## Algorithms Covered
 
@@ -84,6 +82,7 @@ n3       3       [n2  n3 1]
 ```
 
 
-## Summary
+## Disclaimer
 
-It has quite a bit of room for improvement. Feel free to reach out if you spot weakness, bug, enancement or simply a suggestion.
+This is a quick and dirty code produced over a weekend. Main objective behind this repository is purely educational. It has quite a bit of room for improvement. Feel free to reach out if you spot weakness, bug, enancement or simply a suggestion. 
+
