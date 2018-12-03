@@ -6,7 +6,7 @@ This repo covers basic graph algorithms for directed and undirected graphs with/
 
 Base graph data structure is targeted for **sparse graphs**. For example, it maintains adjancy list and pointrs.
 
-Main objective behind this repository is purely educational.
+This is a relatively poor quality code produced over a weekend. Main objective behind this repository is purely educational.
 
 ## How to Compile
 ```
