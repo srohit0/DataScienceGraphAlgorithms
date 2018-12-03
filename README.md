@@ -8,6 +8,14 @@ Base graph data structure is targeted for **sparse graphs**. For example, it mai
 
 This is a relatively poor quality code produced over a weekend. Main objective behind this repository is purely educational.
 
+## Algorithms Covered
+
+* DFS
+* Topological Sort
+* Prim's Mimimal Spanning Tree
+* Kruskal's Mimimal Spanning Tree
+* Dijkstra's Single Source Shortest Path
+
 ## How to Compile
 ```
 cd src
