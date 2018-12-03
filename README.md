@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repo covers basic graph algorithms for directed and undirected graphs with/without weights on edges.
+This repo covers basic graph algorithms for directed and undirected graphs with/without weights on edges. Graph description is read from a file with ascii format.
 
 Base graph data structure is targeted for **sparse graphs** efficiency. For example, it maintains adjancy list and pointrs.
 
@@ -14,7 +14,7 @@ Base graph data structure is targeted for **sparse graphs** efficiency. For exam
 * Kruskal's Mimimal Spanning Tree
 * Dijkstra's Single Source Shortest Path
 
-## Graph Format
+## Graph File Format
 
 ```
 graph (un)directed`
@@ -38,16 +38,18 @@ n5 n4 3
 n5 n6 2
 ```
 
-## How to Compile
+## Application
+
+### How to Compile
 ```
 cd src
 <c++-compiler> bgaMain.cpp -o bgaMain.exe
 ```
 
-## How to Run
+### How to Run
 ``` bgaMain.exe <graph-file>```
 
-## Example run
+### Example run
 
 
 $ src/bgaMain.exe test/dgraph5.txt
