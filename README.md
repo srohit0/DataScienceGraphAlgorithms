@@ -69,7 +69,7 @@ graph (un)directed`
 
 ***Example Graph File*** 
 
-![](https://github.com/srohit0/BasicGraphAlgorithmsCpp/blob/master/docs/ExampleGraph.JPG =400x200)
+![](https://github.com/srohit0/BasicGraphAlgorithmsCpp/blob/master/docs/ExampleGraph.JPG)
 
 
       
