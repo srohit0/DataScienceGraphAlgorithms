@@ -1,0 +1,10 @@
+graph directed
+n6 n2 22
+n1 n2 19
+n1 n4 7
+n3 n4 29
+n3 n7 32
+n2 n5 63
+n2 n8 59
+n2 n7 4
+n4 n8 89

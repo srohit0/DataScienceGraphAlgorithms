@@ -1,0 +1,11 @@
+graph undirected
+A B
+A F
+A C
+A H
+B C
+B D
+B E
+B G
+D G
+E F

@@ -1,0 +1,14 @@
+graph undirected
+A B 1
+A C 3
+A F 10
+B C 1
+B D 7
+B E 5
+B G 2
+C D 9
+C E 3
+D E 2
+D F 1
+D G 12
+E F 2

@@ -1,0 +1,15 @@
+graph undirected
+n1 n2 4
+n1 n3 6
+n1 n4 16
+n2 n6 24
+n3 n4 8
+n3 n5 5
+n3 n6 23
+n4 n5 10
+n4 n8 21
+n5 n6 18
+n5 n7 11
+n5 n8 14
+n6 n7 9
+n7 n8 7

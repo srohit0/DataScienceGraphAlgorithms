@@ -1,0 +1,10 @@
+graph directed
+n6 n2
+n1 n2
+n1 n4
+n3 n4
+n3 n7
+n2 n5
+n2 n8
+n2 n7
+n4 n8
