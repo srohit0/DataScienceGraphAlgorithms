@@ -13,6 +13,7 @@ Base graph data structure is targeted for **sparse graphs** efficiency. For exam
 * Prim's Mimimal Spanning Tree
 * Kruskal's Mimimal Spanning Tree
 * Dijkstra's Single Source Shortest Path
+* A* (aka Astar) Source Destination Pair Shortest Path Algorithm
 
 ## Graph File Format
 
