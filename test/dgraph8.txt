@@ -1,0 +1,17 @@
+graph directed
+A E
+A H
+B A
+B G
+C D
+D F
+E D
+E J
+F C
+F I
+G F
+H C
+H I
+I G
+J B
+J H
