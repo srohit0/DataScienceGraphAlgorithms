@@ -18,14 +18,14 @@ Legend:
 
 ## Algorithms Covered
 
-* DFS
-* Transpose
-* Topological Sort
-* Strongly Connected Components
-* Prim's Mimimal Spanning Tree
-* Kruskal's Mimimal Spanning Tree
-* Dijkstra's Single Source Shortest Path to All Nodes
-* A* (aka Astar) Source-Destination Pair Shortest Path Finder Algorithm
+* [DFS](src/dfs.h)
+* [Transpose](src/transpose.h)
+* [Topological Sort](src/dfs.h)
+* [Strongly Connected Components](src/scc.h)
+* [Prim's Mimimal Spanning Tree](src/mst.h)
+* [Kruskal's Mimimal Spanning Tree](src/mst.h)
+* [Dijkstra's Single Source Shortest Path to All Nodes](src/shortestPath.h)
+* [A* (aka Astar) Source-Destination Pair Shortest Path Finder Algorithm](src/shortestPath.h)
 
 ## Graph File Format
 
