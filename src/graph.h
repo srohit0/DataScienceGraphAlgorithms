@@ -18,6 +18,7 @@
 using namespace std;
 
 namespace basicGraph {
+	typedef enum { NOT_VISITED = 1, VISITING = 2, VISITED = 3 } NODE_MARKS;
 	class bNode;
 	class bEdge;
 
@@ -46,6 +47,7 @@ namespace basicGraph {
 			edgelist_.insert(e);
 			return true;
 		}
+		void clearEdgeList() { edgelist_.clear(); }
 		set<const bEdge*, edgeCompare>::iterator edgeBegin() const { return edgelist_.begin(); }
 		set<const bEdge*, edgeCompare>::iterator edgeEnd()   const { return edgelist_.end(); }
 	};
@@ -73,6 +75,12 @@ namespace basicGraph {
 		const bNode* n1()             const { return n1_;  }
 		const bNode* n2()             const { return n2_;  }
 		virtual bool  hasWeight()     const {return false; }
+		void swap_nodes() // used to compute transpose of graph
+		{
+			const bNode* tmp = n1_;
+			n1_ = n2_;
+			n2_ = tmp;
+		}
 		const bNode* otherNode(const bNode* n) const
 		{
 			if (n1_ == n)
@@ -115,6 +123,7 @@ namespace basicGraph {
 		set<const bEdge*, edgeCompare> edgeset_;
 	public:
 		bGraph(bool directed=false) : isDirected_(directed) {}
+		bGraph(const bGraph& other);
 		void setDirected(bool directed) { isDirected_ = directed; }
 		bool directed() const { return isDirected_;  }
 		const bNode* findNode(string name) {
@@ -158,6 +167,7 @@ namespace basicGraph {
 			}
 			return e;
 		}
+		void addNodesAndEdge(string, string, size_t);
 		size_t nNodes() const { return nodeset_.size(); }
 		size_t nEdges() const { return edgeset_.size(); }
 

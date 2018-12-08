@@ -56,7 +56,9 @@ public:
 	Heap() {}
 	void push(const T& element);
 	bool pop(T&);
+	bool erase(T&);
 	bool exists(T&);
+	bool index(T&, size_t&);
 	inline size_t parent_index(size_t i) { return (i - 1) >> 1; }
 	inline size_t left_index(size_t i) { return (i << 1) + 1; }
 	inline size_t right_index(size_t i) { return (i << 1) + 2; }
@@ -123,6 +125,38 @@ Heap<T, COMPARE>::pop(T& popped) {
 	((std::vector<T>*)this)->pop_back();
 	heapify_down(0);
 	return true;
+}
+
+template<typename T, class COMPARE>
+bool
+Heap<T, COMPARE>::index(T& element, size_t& idx) {
+
+	for (size_t i = 0; i < this->size(); i++)
+	{
+		if ((*this)[i] == element)
+		{
+			idx = i;
+			return true;
+		}
+	}
+	return false;
+
+}
+
+template<typename T, class COMPARE>
+bool
+Heap<T, COMPARE>::erase(T& element) {
+	if (!this->size()) return false;
+
+	size_t idx;
+	if (index(element, idx))
+	{
+		(*this)[idx] = (*this)[this->size() - 1];
+		((std::vector<T>*)this)->pop_back();
+		heapify_down(idx);
+		return true;
+	}
+	return false;
 }
 
 template<typename T, class COMPARE>

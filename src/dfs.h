@@ -16,8 +16,7 @@
 
 class DFS {
 private:
-	typedef enum { NOT_VISITED = 1, VISITING = 2, VISITED = 3 } NODE_MARKS;
-	map<const basicGraph::bNode*, NODE_MARKS> nodeMarks_;
+	map<const basicGraph::bNode*, basicGraph::NODE_MARKS> nodeMarks_;
 	basicGraph::bGraph*                       graph_;
 
 	string tabs(unsigned int level) {
@@ -30,7 +29,7 @@ private:
 		set<const basicGraph::bNode*, basicGraph::nodeCompare>::iterator niter = graph_->nodeBegin();
 		for (; niter != graph_->nodeEnd(); niter++) {
 			const basicGraph::bNode* node = *niter;
-			DFS::nodeMarks_[node] = NOT_VISITED;
+			DFS::nodeMarks_[node] = basicGraph::NOT_VISITED;
 		}
 		return;
 	}
@@ -38,31 +37,31 @@ private:
 	void search_int(const basicGraph::bNode* src, unsigned int level = 0)
 	{
 		cout << tabs(level++) << src->name() << " visiting" << endl;
-		DFS::nodeMarks_[src] = VISITING;
+		DFS::nodeMarks_[src] = basicGraph::VISITING;
 
 		set<const basicGraph::bEdge*, basicGraph::edgeCompare>::iterator niter = src->edgeBegin();
 		for (; niter != src->edgeEnd(); niter++) {
 			const basicGraph::bNode* nextNode = (*niter)->otherNode(src);
-			if (DFS::nodeMarks_[nextNode] == DFS::NOT_VISITED)
+			if (DFS::nodeMarks_[nextNode] == basicGraph::NOT_VISITED)
 				search_int(nextNode);
 		}
 
-		DFS::nodeMarks_[src] = VISITED;
+		DFS::nodeMarks_[src] = basicGraph::VISITED;
 		cout << tabs(level--) << src->name() << " visited." << endl;
 	}
 
 	void ts_visit(const basicGraph::bNode* src, vector<vector<const basicGraph::bNode*>>& container, unsigned int level=0)
 	{
-		if (DFS::nodeMarks_[src] == DFS::VISITED)
+		if (DFS::nodeMarks_[src] == basicGraph::VISITED)
 			return;
 
-		if (DFS::nodeMarks_[src] == DFS::VISITING)
+		if (DFS::nodeMarks_[src] == basicGraph::VISITING)
 		{
 			cerr << "Error: cycle deteceted at node " << src->name() << ". Topological sorting abandoned.\n";
 			return;
 		}
 
-		DFS::nodeMarks_[src] = DFS::VISITING;
+		DFS::nodeMarks_[src] = basicGraph::VISITING;
 
 		set<const basicGraph::bEdge*, basicGraph::edgeCompare>::iterator niter = src->edgeBegin();
 		for (; niter != src->edgeEnd(); niter++) {
@@ -70,7 +69,7 @@ private:
 			ts_visit(nextNode, container, level+1);
 		}
 
-		DFS::nodeMarks_[src] = DFS::VISITED;
+		DFS::nodeMarks_[src] = basicGraph::VISITED;
 		container[level].push_back(src);
 
 		return;
@@ -115,7 +114,7 @@ public:
 		for (; niter != graph_->nodeEnd(); niter++) 
 		{
 			const basicGraph::bNode* src = *niter;
-			if (DFS::nodeMarks_[src] != VISITED)
+			if (DFS::nodeMarks_[src] != basicGraph::VISITED)
 				ts_visit(src, levelized_container);
 		}
 

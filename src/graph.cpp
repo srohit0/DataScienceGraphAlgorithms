@@ -42,6 +42,33 @@ void basicGraph::tokenizeLine(char* line, std::vector<std::string> &tokens)
 	}
 }
 
+basicGraph::bGraph::bGraph(const basicGraph::bGraph& other_graph)
+{
+	isDirected_ = other_graph.directed();
+	set<const basicGraph::bEdge*, basicGraph::edgeCompare>::iterator eiter;
+	for (eiter = other_graph.edgeBegin(); eiter != other_graph.edgeEnd(); eiter++)
+	{
+		size_t wt = (*eiter)->hasWeight() ? 
+			dynamic_cast<const bWeightedEdge*>(*eiter)->weight() : 
+			basicGraph::bEdge::INVALID_WEIGHT;
+		addNodesAndEdge((*eiter)->n1()->name(), (*eiter)->n2()->name(), wt);
+	}
+	return;
+}
+
+void basicGraph::bGraph::addNodesAndEdge(string n1, string n2, size_t weight)
+{
+	basicGraph::bNode* node1 = addNode(n1);
+	basicGraph::bNode* node2 = addNode(n2);
+
+	const basicGraph::bEdge* edge = addEdge(node1, node2, weight);
+	node1->addEdge(edge);
+	if (!directed())
+		node2->addEdge(edge);
+
+	return;
+}
+
 void
 basicGraph::bGraph::print() const
 {
@@ -71,7 +98,7 @@ basicGraph::bGraph *basicGraph::bGraph::readBasicGraph(string filename)
 		vector<string> tokens;
 		tokenizeLine(line, tokens);
 
-		if (tokens.size() == 0 || tokens[0] == "#") {
+		if (tokens.size() == 0 || tokens[0][0] == '#') {
 			continue;
 		}
 		if (tokens.size() < 2)
@@ -87,18 +114,18 @@ basicGraph::bGraph *basicGraph::bGraph::readBasicGraph(string filename)
 			else if (tokens[1] == "directed")
 				new_graph->setDirected(true);
 			else
-				cerr << "invalid keyword after \'graph\' : " << tokens[1];
+				cerr << "Error: invalid keyword after \'graph\' : " << tokens[1];
 		}
 		else {
-			basicGraph::bNode* node1 = new_graph->addNode(tokens[0]);
-			basicGraph::bNode* node2 = new_graph->addNode(tokens[1]);
-			size_t weight = tokens.size() > 2 ? 
-				stol(tokens[2]) : basicGraph::bEdge::INVALID_WEIGHT;
+			size_t weight = basicGraph::bEdge::INVALID_WEIGHT;
+			if (tokens.size() > 2)
+			{
+				weight = stol(tokens[2]);
+				if (weight < 0)
+					cerr << "Warning: negative weight for the edge " << line << ".\n";
+			}
 
-			const basicGraph::bEdge* edge = new_graph->addEdge(node1, node2, weight);
-			node1->addEdge(edge);
-			if (!new_graph->directed())
-				node2->addEdge(edge);
+			new_graph->addNodesAndEdge(tokens[0], tokens[1], weight);
 		}
 	}
 	buf.close();

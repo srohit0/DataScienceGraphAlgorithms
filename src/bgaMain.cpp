@@ -4,10 +4,12 @@
 //    modify it under the terms as GNU General Public License.
 ///////////////////////////////////////////////////////////////////
 //
-// basic Graph Algorithms.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// basic Graph Algorithms
+//      This file contains the 'main' function to start the execution
+// with a basic text user interface for all algorithms.
 //
 
-#include "graph.h"
+#include "scc.h"
 #include "dfs.h"
 #include "mst.h"
 #include "shortestPath.h"
@@ -51,16 +53,31 @@ int main(int argc, char** argv)
 		{
 			cout << " help\n";
 			cout << " print\n";
+			cout << " transpose\n";
+			cout << " scc     [<node>]\n";
 			cout << " search  <root_node>\n";    // dfs search tree
 			cout << " sort \n";                  // levelize or topological sort
 			cout << " mst     [prim|kruskal]\n"; // minimal spanning tree
-			cout << " path    <root_node>\n";    // Shortest Path from single source to all vertices
+			cout << " path    <start_node> [<end_node>]\n";  // Path from source to one or all vertices
 			cout << " quit\n";
 		} 
 		else if (choice == "print") 
 		{
 			graph->print();
 			cout << "\n";
+		}
+		else if (choice == "transpose")
+		{
+			transpose reverse(false);
+			const basicGraph::bGraph* new_graph = reverse.build(graph);
+			new_graph->print();
+			delete new_graph;
+		}
+		else if (choice == "scc")
+		{
+			SCC::kosaraju sccBuilder(graph);
+			sccBuilder.build();
+			sccBuilder.print();
 		}
 		else if (choice == "search") 
 		{
@@ -110,15 +127,34 @@ int main(int argc, char** argv)
 				cerr << "Error: supply search node and try again.\n";
 				continue;
 			}
-			string node = tokens[1];
-			const basicGraph::bNode* src = graph->findNode(node);
-			if (!src) {
-				cerr << "Error: node " << node << "not found in the graph.\n";
+			string node1 = tokens[1];
+			string node2 = tokens.size() > 2 ? tokens[2] : "" ;
+			const basicGraph::bNode* src = graph->findNode(node1);
+			if (!src) 
+			{
+				cerr << "Error: node " << node1 << "not found in the graph.\n";
+				continue;
 			}
-			else {
+			const basicGraph::bNode* dst = node2.length() ? graph->findNode(node2) : nullptr;
+			if (node2.size() && !dst)
+			{
+				cerr << "Error: node " << node2 << "not found in the graph.\n";
+				cerr << "       will use single source path algorithm.\n";
+			}
+
+			if ( dst == nullptr ) 
+			{
+				// path to all nodes from source
 				short_paths::dijkstra single_source_path(src, graph);
 				single_source_path.build();
 				single_source_path.print();
+			} 
+			else
+			{
+				// a_star search for source and destination.
+				short_paths::aStar src_dst_path(src, graph);
+				src_dst_path.build(dst);
+				src_dst_path.print(dst);
 			}
 		}
 		else if (choice == "quit" || choice == "exit")
@@ -132,5 +168,6 @@ int main(int argc, char** argv)
 		}
 	}
 
+	delete graph;
 	return 0;
 }
