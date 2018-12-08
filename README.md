@@ -4,12 +4,24 @@
 
 This repo covers basic graph algorithms for directed and undirected graphs with/without weights on edges. Graph description is read from a file with ascii format.
 
-Base graph data structure is targeted for **sparse graphs** efficiency. For example, it maintains adjancy list and pointrs.
+Base graph data structure is targeted for **sparse graphs** efficiency. For example, it maintains adjancy list and pointrs. Here are big O time and space complexities.
+
+
+|                 |    RAM    | node-add | edge-add | node-remove | edge-remove |   query   |
+| --------------- |:---------:|:--------:|:--------:|:-----------:|:-----------:|:---------:|
+| Adjacency List  |  [n]+[e]  |    1     |     1    |   [n]+[e]   |     [e]     |    [e]    |
+| Incident List   |  [n]+[e]  |    1     |     1    |     [e]     |     [e]     |    [e]    |
+
+Legend:
+* Two vertices are called adjacent if they are connected by an edge.
+* Two edges are called incident, if they share a vertex.
 
 ## Algorithms Covered
 
 * DFS
+* Transpose
 * Topological Sort
+* Strongly Connected Components
 * Prim's Mimimal Spanning Tree
 * Kruskal's Mimimal Spanning Tree
 * Dijkstra's Single Source Shortest Path to All Nodes
@@ -87,5 +99,5 @@ n3       3       [n2  n3 1]
 
 ## Disclaimer
 
-This is a quick and dirty code produced over a weekend. Main objective behind this repository is purely educational. It has quite a bit of room for improvement. Feel free to reach out if you spot weakness, bug, enancement or simply a suggestion. 
+This is a quick and dirty code produced over weekends. Main objective behind this repository is purely educational. It has quite a bit of room for improvement. Feel free to reach out if you spot weakness, bug, enancement or simply a suggestion. 
 
