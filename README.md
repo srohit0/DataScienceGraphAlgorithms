@@ -21,6 +21,8 @@ Legend:
 ![Graph Structure](docs/graph.jpg)
 
 ```cpp
+namespace basicGraph {
+...
 	class bNode {
 	private:
 		string                         name_;     // node name
@@ -41,6 +43,7 @@ Legend:
 		set<const bEdge*, edgeCompare> edgeset_;
 	...
 	};
+}
 
 ```
 
