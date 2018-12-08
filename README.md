@@ -46,6 +46,7 @@ namespace basicGraph {
 }
 
 ```
+For more details, refer to [graph.h](src/graph.h).
 
 ## Algorithms Covered
 
