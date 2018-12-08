@@ -1,6 +1,7 @@
 ## Graph Format
 
 ```
+# comment
 graph (un)directed`
 <node-x> <node-y> [edge-weight]
 ```
@@ -12,6 +13,7 @@ graph (un)directed`
 
       
 ```
+# Comment, ignored by graph reader
 graph directed
 n1 n2 2
 n1 n3 4
