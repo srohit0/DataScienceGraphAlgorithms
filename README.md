@@ -16,6 +16,34 @@ Legend:
 * Two vertices are called adjacent if they are connected by an edge.
 * Two edges are called incident, if they share a vertex.
 
+## Basic Graph
+
+![Graph Structure](doc/graph.jpg)
+
+```cpp
+	class bNode {
+	private:
+		string                         name_;     // node name
+		set<const bEdge*, edgeCompare> edgelist_; // incident list
+      ...
+      }/
+      class bEdge {
+	private:
+		const bNode* n1_;    // from node for directd graphs
+		const bNode* n2_;    // to   node for directed graphs
+      ...
+      };
+      ...
+      class bGraph {
+	private:
+		bool                           isDirected_;
+		set<const bNode*, nodeCompare> nodeset_;
+		set<const bEdge*, edgeCompare> edgeset_;
+      ...
+      };
+
+```
+
 ## Algorithms Covered
 
 * [DFS](src/dfs.h)
@@ -36,7 +64,7 @@ graph (un)directed`
 
 ***Example Graph File*** 
 
-![](https://github.com/srohit0/BasicGraphAlgorithmsCpp/blob/master/docs/ExampleGraph.JPG)
+![Example Graph](docs/ExampleGraph.JPG)
       
 ```
 # Comment, ignored by the graph reader
