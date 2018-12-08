@@ -39,6 +39,7 @@ graph (un)directed`
 ![](https://github.com/srohit0/BasicGraphAlgorithmsCpp/blob/master/docs/ExampleGraph.JPG)
       
 ```
+# Comment, ignored by the graph reader
 graph directed
 n1 n2 2
 n1 n3 4
