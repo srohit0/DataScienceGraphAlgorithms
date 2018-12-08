@@ -4,7 +4,7 @@
 
 This repo covers basic graph algorithms for directed and undirected graphs with/without weights on edges. Graph description is read from a file with ascii format.
 
-Base graph data structure is targeted for **sparse graphs** efficiency. For example, it maintains adjancy list and pointrs. Here are big O time and space complexities.
+Base graph data structure is targeted for **sparse graphs** efficiency. For example, it maintains adjancy list and pointrs. Here are big-O time and space complexities.
 
 
 |                 |    RAM    | node-add | edge-add | node-remove | edge-remove |   query   |
@@ -25,22 +25,22 @@ Legend:
 	private:
 		string                         name_;     // node name
 		set<const bEdge*, edgeCompare> edgelist_; // incident list
-      ...
-      }/
-      class bEdge {
+	...
+	}/
+	class bEdge {
 	private:
 		const bNode* n1_;    // from node for directd graphs
 		const bNode* n2_;    // to   node for directed graphs
-      ...
-      };
-      ...
-      class bGraph {
+	...
+	};
+	...
+	class bGraph {
 	private:
 		bool                           isDirected_;
 		set<const bNode*, nodeCompare> nodeset_;
 		set<const bEdge*, edgeCompare> edgeset_;
-      ...
-      };
+	...
+	};
 
 ```
 
