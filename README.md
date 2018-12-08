@@ -18,7 +18,7 @@ Legend:
 
 ## Basic Graph
 
-![Graph Structure](docs/graph.jpg =400x)
+![Graph Structure](docs/graph.jpg)
 
 ```cpp
 	class bNode {
