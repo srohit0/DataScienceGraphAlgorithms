@@ -1,4 +1,5 @@
-# Basic Graph Algorithms
+# Basic Graph Algorithms for Data Scientists
+This live repo aims to cover basic graph algorithms implemented in C++ (for performance reasons) used in data science. It's meant for educational purposes and will continue to evole. 
 
 ## Introduction
 
