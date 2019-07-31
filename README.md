@@ -90,7 +90,7 @@ n5 n6 2
 ### How to Compile
 ```
 cd src
-<c++-compiler> bgaMain.cpp -o bgaMain.exe
+<c++-compiler> *.cpp -o bgaMain.exe
 ```
 
 ### How to Run
