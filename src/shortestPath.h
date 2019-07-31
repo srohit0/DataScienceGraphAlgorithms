@@ -68,7 +68,8 @@ namespace short_paths {
 		pathNode* src() { return src_; }
 		pathNode* retrievePathNode(const basicGraph::bNode* gnode)
 		{
-			set<pathNode*, pathNodeCompare>::iterator niter = tree_.find(&pathNode(gnode));
+            pathNode tmpNode = pathNode(gnode);
+			set<pathNode*, pathNodeCompare>::iterator niter = tree_.find(&tmpNode);
 			return niter == tree_.end() ? nullptr : *niter;
 		}
 		pathNode* retrieveOrAddPathNode(const basicGraph::bNode* gnode)

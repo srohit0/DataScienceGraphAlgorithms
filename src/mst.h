@@ -47,11 +47,13 @@ namespace MST {
 		virtual void build() = 0;
 		bool nodePartOfMST(const basicGraph::bNode* gnode)
 		{
-			return tree_.find(&treeNode(gnode)) != tree_.end();
+            treeNode tmpTreeNode = treeNode(gnode);
+			return tree_.find(&tmpTreeNode) != tree_.end();
 		}
 		treeNode* getTreeNode(const basicGraph::bNode* gnode)
 		{
-			set<treeNode*, treeNodeCompare>::iterator niter = tree_.find(&treeNode(gnode));
+            treeNode tmpTreeNode = treeNode(gnode);
+			set<treeNode*, treeNodeCompare>::iterator niter = tree_.find(&tmpTreeNode);
 			return niter == tree_.end() ? nullptr : *niter;
 		}
 		void print(bool edges_only=false)
@@ -177,8 +179,10 @@ namespace MST {
 			{
 				const basicGraph::bNode* u = sortedEdges[i]->n1();
 				const basicGraph::bNode* v = sortedEdges[i]->n2();
-				auto uset = tree_.find(&treeNode(u));
-				auto vset = tree_.find(&treeNode(v));
+                treeNode tmpUNode = treeNode(u);
+                treeNode tmpVNode = treeNode(v);
+				auto uset = tree_.find(&tmpUNode);
+				auto vset = tree_.find(&tmpVNode);
 				if (uset != tree_.end() && vset != tree_.end() && 
 					(*uset)->iset_ != (*vset)->iset_ )
 				{
@@ -297,4 +301,5 @@ namespace MST {
 	};
 }
 
-#endif GRAPH_MST_H
+#endif 
+

@@ -9,6 +9,7 @@
 // with a basic text user interface for all algorithms.
 //
 
+#include "dvector.h"
 #include "scc.h"
 #include "dfs.h"
 #include "mst.h"
