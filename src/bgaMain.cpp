@@ -18,7 +18,11 @@
 #include <vector>
 #include <sstream>
 
+template <typename T>
+T dvector<T>::NULL_DATA = 0;
+
 using namespace std;
+
 int main(int argc, char** argv)
 {
 	if (argc < 1) {
